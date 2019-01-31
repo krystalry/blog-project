@@ -14,7 +14,7 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: '/index',
+      path: '/',
       component: Index
     },
     {
@@ -22,28 +22,31 @@ export default new Router({
       component: Login
     },
     {
-      path: '/create',
-      component: Create
-    },
-    {
-      path: '/detail',
-      component: Detail
-    },
-    {
-      path: '/edit',
-      component: Edit
-    },
-    {
-      path: '/my',
-      component: My
-    },
-    {
       path: '/register',
       component: Register
     },
     {
-      path: '/user',
+      path: '/detail/:blogId',
+      component: Detail
+    },
+    {
+      path: '/edit/:blogId',
+      component: Edit,
+      meta: {requiresAuth: true}
+    },
+    {
+      path: '/create',
+      component: Create,
+      meta: {requiresAuth: true}
+    },
+    {
+      path: '/user/:userId',
       component: User
+    },
+    {
+      path: '/my',
+      component: My,
+      meta: {requiresAuth: true}
     }
   ]
 })
